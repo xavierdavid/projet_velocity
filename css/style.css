@@ -1,0 +1,2601 @@
+/*********************************************************************************************************/
+/*                                           STYLES GENERAUX                                             */
+/*********************************************************************************************************/
+
+
+
+
+
+
+body /* Styles généraux de la page */
+{
+  margin: 0px; /* Suppression des marges du body pour l'affichage du slider en pleine largeur*/
+  padding: 0px;
+  font-family: 'Roboto', sans-serif;
+  width: 100%;
+}
+
+/* Position et dimension du bloc page */
+#bloc_page {
+  width: 90%; /* Largeur */
+  margin : 50px auto; /* Marges automatiques - Centrage du design */
+}
+
+
+
+
+
+
+/*********************************************************************************************************/
+/*                                           STYLE DE L'ENTÊTE                                           */
+/*********************************************************************************************************/
+
+
+/* Style du bloc header */
+header {
+  display:flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 6px;
+  position: fixed; /* Positionnement figé du header en haut à gauche de page */
+  top:0px;
+  Left: 0px;
+  width: 100%;
+  background-color: white;
+  z-index: 1100; /* Header en premier plan et donc toujours visible en haut de page */
+  /*background-color: #f5f5f5;*/
+}
+
+.logo_titre {
+  position: relative;
+  height:125px;
+  width: 30%;
+}
+
+.logo_1 {
+  position: absolute;
+  left: 30px;
+  top: 15px;
+  width: 110px;
+  height: 110px;
+}
+
+.logo_1 img {
+  width: 100px;
+  height: 100px;
+}
+
+.logo_2 {
+  position: absolute;
+  left: 94px;
+  top: 63px;
+  width: 23px;
+  height: 23px;
+}
+
+.logo_2 img {
+  width: 22px;
+  height: 22px;
+}
+
+#titre_principal {
+  display: flex;
+  justify-content: center;
+  width: 30%;
+}
+
+#titre_slogan {
+  width: 30%;
+}
+
+#titre_slogan span {
+  font-size:35px;
+}
+
+header h1 {
+  font-size: 60px;
+  color: #03a79d;
+  font-weight: bold;
+}
+
+header h2 {
+  font-size: 22px;
+  color: #7a7b7f;
+}
+
+header h2 span {
+  color: #f1b83c;
+}
+
+
+
+
+
+
+/*********************************************************************************************************/
+/*                                   STYLE DU BLOC DE PRESENTATION DU SITE                               */
+/*********************************************************************************************************/
+
+/* Style du titre de la section de présentation du site */
+#accueil_site h2 {
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 10px;
+  color: #4f505499;
+}
+
+#accueil_site {
+  margin-top: 195px;
+}
+
+#accueil_site_title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #80808033;
+  border-radius: 58% 0%;
+  box-shadow: 17px 17px 23px 1px rgba(143,141,143,1);
+}
+
+#accueil_site span {
+  margin-right: 25px;
+}
+
+#accueil_site i {
+  color: #f1b83c;
+}
+
+
+
+
+
+
+/*********************************************************************************************************/
+/*                                           STYLE DU DIAPORAMA                                          */
+/*********************************************************************************************************/
+
+/* Dimension et position du container du slider - Ajusté en fonction de la taille des images, soit : 800 x 500 pixels */
+#slider_container {
+  position: relative;
+  width: 750px;
+  height: 500px;
+  overflow: hidden; /* On masque l'affichage des éléments du container (images du slider) lorsque ces derniers sont trop grands et débordent du container */
+  border: 3px #7a7b7f solid; /* Bordure du slider_container */
+  box-shadow: 6px 6px 6px 1px #b2b4ba; /* Ombre externe du slider_container */
+  border-radius: 25px;
+  margin: 20px auto auto;; /* Ajustement des marges externes du slider_container */
+  margin-top: 100px;
+  margin-bottom: 45px;
+}
+
+/* Style du slider */
+#slider {
+  position: absolute;/* Positionnement absolu du slider par rapport à son parent slider_container : en haut et à gauche */
+  top: 0px;
+  left:0px;
+  display: flex; /* Les éléments du slider (les figures images) sont positionnées les unes à côté des autres grâce à flexbox */
+  width: 750px;
+  height: 500px;
+  z-index: 1;
+}
+
+/* Dimensionnement des images : largeur et hauteur */
+#slider img {
+    width: 750px;
+    height: 500px;
+}
+
+/* Position des flèches de navigation du slider */
+#fleche_gauche_slider a {
+  position: absolute; /* Positionnement absolu de la flèche gauche par rapport au container du slider */
+  top : 218px;
+  left: -40px;
+  font-size: 34px;
+  z-index: 3; /* Flèche gauche en second plan et donc toujours visible après le header (premier plan) */
+}
+
+/* Style du chevron de flèche gauche */
+.fa-chevron-left {
+  font-size: 0.6em;
+  margin-left: 12px;
+}
+
+#fleche_droite_slider a {
+  position: absolute; /* Positionnement absolu de la flèche doite par rapport au container du slider */
+  top : 218px;
+  right: -40px;
+  font-size: 34px;
+  z-index: 3;
+}
+
+/* Style du chevron de flèche gauche */
+.fa-chevron-right {
+  font-size: 0.6em;
+  margin-left: -12px;
+}
+
+/* Couleur de l'icône "fond circulaire" des flèches de navigation du slider */
+#fleche_gauche_slider span .fa-circle {
+  color: #3c3d3f;
+}
+
+#fleche_droite_slider span .fa-circle {
+  color: #3c3d3f;
+}
+
+/* Style du bouton pause */
+#pause{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position:absolute;
+  left : 0px;
+  top: 0px;
+  width:750px;
+  height: 500px;
+  font-size: 50px;
+  opacity: 0; /* Le bouton pause est invisible par défaut */
+  z-index: 2;
+}
+
+#pause span {
+  text-align: center;
+}
+
+#pause:hover {
+  opacity: 1; /* Le bouton pause apparaît au survol de l'élément "pause" par la souris */
+}
+
+#pause .fa-pause-circle {
+  color: #3c3d3f;
+}
+
+/* Style du bouton play */
+#play {
+  display: none;
+  position:absolute;
+  left : 0px;
+  top: 0px;
+  width:750px;
+  height: 500px;
+  font-size: 50px;
+  opacity: 0;
+  z-index: 2;
+}
+
+#play:hover {
+  opacity: 1;
+}
+
+#play .fa-play-circle {
+  color: #3c3d3f;
+}
+
+/* Style des points indicateurs de défilement du slider */
+
+#indicateur {
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+}
+
+.point {
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  margin: 0px 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  z-index: 3;
+}
+
+.activation, .point:hover{
+  background-color: #717171;
+}
+
+
+
+
+
+
+/*********************************************************************************************************/
+/*                              STYLE DU BLOC DE PRESENTATION DE L'APPLICATION                           */
+/*********************************************************************************************************/
+
+/* Style de l'icone du bloc de présentation de l'application */
+#accueil_application span .fa {
+  position: relative;
+  font-size: 14px;
+}
+/* Couleur de l'icône "cercle" du bloc de présentation de l'application */
+#accueil_application span.fa-circle {
+  color: #5cadd3;
+}
+
+/* Insertion des tirets de séparation avant et après l'icône de présentation de l'application à l'aide des pseudo éléments "before" et "after" */
+#accueil_application p:nth-child(2):before { /* Avant le deuxième enfant du parent "accueil_services" */
+  content: " "; /* Création d'un bloc "vide" */
+  display: inline-block; /* Affichage inline-block pour que le bloc se comporte comme un élément inline */
+  vertical-align: middle; /* Alignement vertical du bloc */
+  width : 75px; /* Largeur du bloc créé */
+  height : 0px; /* Hauteur du bloc créé */
+  border-bottom: 1px #edeaea solid; /* Application d'une bordure pour créer le tiret */
+  margin-right: 3px;
+  padding-top: 3px;
+}
+#accueil_application p:nth-child(2):after {
+  content: " ";
+  display: inline-block;
+  vertical-align: middle;
+  width : 75px;
+  height : 0px;
+  border-bottom: 1px #edeaea solid;
+  margin-left: 3px;
+  padding-top: 3px;
+}
+
+/* Style du titre de la section dédiée à l'application */
+#accueil_application h2 {
+text-align: center;
+font-size: 1.8em;
+margin-top: 80px;
+margin-bottom: 10px;
+color: #03a79d;
+}
+
+/* Style des paragraphes de la section dédiée à l'application */
+#accueil_application p {
+  text-align: center;
+  font-size: 1em;
+  color:#79797c;
+  margin: 10px 175px;
+}
+
+
+
+
+
+
+/*********************************************************************************************************/
+/*                                     STYLE DE LA CARTE INTERACTIVE                                     */
+/*********************************************************************************************************/
+
+
+#blocApplication {
+  display:flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+/* Dimensions et style du bloc de la carte interactive de location de vélos */
+#mapid {
+  width: 65%;
+  height: 575px;
+  border: 2px #7a7b7f solid; /* Bordure de la carte */
+  border-radius: 3%;
+}
+
+/* Dimensions et style du bloc de la carte interactive de location de vélos */
+#panneau {
+  position: relative;
+  width: 30%;
+  height: 554px;
+  border: 2px #7a7b7f solid; /* Bordure de la carte */
+  border-radius: 3%;
+  margin-left : 20px;
+  padding: 10px;
+}
+
+/* Style du titre h2 "Détail de la station" */
+h2{
+  font-size: 25px;
+  color:#4f5054;
+  text-align: center;
+}
+
+/* Style du bloc adresse */
+#adresse {
+  font-size: 18px;
+  color:#4f5054;
+  font-weight: bold;
+  display: none;
+}
+#contenuAdresse{
+  font-weight: normal;
+}
+
+#places, #velos {
+  font-size: 18px;
+  color:#4f5054;
+  font-weight: normal;
+  display: none;
+}
+
+#nombrePlaces, #nombreVelos {
+  color:#539fbc;
+  font-weight: bold;
+}
+
+/* Style du message d'information */
+#information {
+  display:flex;
+  position: relative;
+  text-align: justify;
+  font-size: 15px;
+  width: 95%;
+  height: 65px;
+  border-radius: 10px;
+  background-color: #e8e9ed;
+  text-align: justify;
+  font-size: 15px;
+  color:#4f5054;
+  padding:10px;
+}
+
+/* Style de l'icône d'alerte */
+.fa-info-circle {
+  color: #3c3d3f;
+  position:absolute;
+  left: 20px;
+  top: 25px;
+}
+
+#information p {
+  position: absolute;
+  left: 15px;
+  top: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 21px;
+  margin-left: 31px;
+}
+
+/* Style du message d'alerte */
+#alerte {
+  display:flex;
+  position: relative;
+  text-align: justify;
+  font-size: 15px;
+  width: 95%;
+  height: 65px;
+  border-radius: 10px;
+  background-color: #f9cf72;
+  text-align: justify;
+  font-size: 15px;
+  color:#4f5054;
+  padding:10px;
+  display:none;
+}
+
+/* Style de l'icône d'alerte */
+.fa-exclamation-triangle {
+  color: #3c3d3f;
+  position:absolute;
+  left: 20px;
+  top: 25px;
+}
+
+#alerte p {
+  position: absolute;
+  left: 18px;
+  top: 0px;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 0px 21px;
+  margin-left: 31px;
+}
+
+/* Style du message de prise en compte de la réservation */
+#votre_reservation {
+  display:flex;
+  position: relative;
+  text-align: justify;
+  font-size: 15px;
+  width: 95%;
+  height: 65px;
+  border-radius: 10px;
+  background-color: #bbe4f7;
+  text-align: justify;
+  font-size: 15px;
+  color:#4f5054;
+  padding:10px;
+  display:none;
+}
+
+/* Style de l'icône d'alerte */
+.fa-exclamation-triangle {
+  color: #3c3d3f;
+  position:absolute;
+  left: 11px;
+  top: 29px;
+}
+
+#votre_reservation p {
+  position: absolute;
+  left: 15px;
+  top: 0px;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px;
+  margin-left: 40px;
+}
+
+/* Style du bloc message de disponibilité de la station */
+#station_disponible {
+  position:absolute;
+  left:8px;
+  top:290px;
+  width: 92%;
+  height: 65px;
+  border-radius: 10px;
+  background-color: #baf4bc;
+  text-align: justify;
+  font-size: 16px;
+  color:#4f5054;
+  padding: 10px;
+  margin-top: 15px;
+  display:none;
+}
+
+/* Style du bloc message d'indisponibilité de la station */
+#station_non_disponible {
+  position:absolute;
+  left:8px;
+  top:270px;
+  width: 90%;
+  height: 75px;
+  border:1px #d11b1b solid;
+  border-radius: 10px;
+  text-align: justify;
+  font-size: 18px;
+  background-color: #f7dcdc;
+  color:#d11b1b;
+  padding: 10px;
+  display:none;
+}
+
+#station_disponible p, #station_non_disponible p {
+  text-align: center;
+}
+
+#image_nocycliste img {
+  width: 90px;
+  height : 90px;
+  position: absolute;
+  left: 40%;
+  bottom: 20px;
+  /*display: none;*/
+}
+
+/* Style du bloc formulaire */
+#formulaire {
+  position: relative;
+  margin-top: 40px;
+}
+
+/* Style des libellés de champ de formulaire */
+label {
+  color:#539fbc;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+input {
+  font-size: 18px;
+}
+
+/* Style du champ input "nom" */
+#nom {
+  margin-left: 39px;
+  width: 200px;
+}
+
+/* Style du champ input "prenom" */
+#prenom {
+  margin-left: 19px;
+  width: 200px;
+}
+
+/* Style du bouton "Réserver" */
+#reserver {
+  width: 50%;
+  height: 35px;
+  background-color: #bbe4f7;
+  border-radius: 15px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #636468;
+  margin: auto;
+  margin-top: 40px;
+}
+
+#aidePrenom, #aideNom {
+  font-size: 10px;
+  color: #d11b1b;
+}
+
+#aidePrenom {
+  position: absolute;
+  left: 265px;
+  top:42px;
+}
+
+#aideNom {
+  position: absolute;
+  left: 278px;
+  top:5px;
+}
+
+/* Style du bloc de réservation (conteneur du bloc signature, message de réservation et timer)*/
+#blocReservation {
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#confirmationReservation {
+  margin-left: 0px;
+  margin-top: 40px;
+  width: 70%;
+}
+
+/* Style du message de réservation */
+#messageReservation {
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: 2px #636468 solid;
+  box-shadow: 6px 6px 0px #e8e9ed;
+  width: 96%;
+  height: 20px;
+  padding: 10px;
+  text-align: center;
+  display: none;
+}
+
+/* Style du timer */
+#timer {
+  margin-left: 0px;
+  margin-top: 40px;
+  font-size: 15px;
+  font-weight:400;
+  font-size: 22px;
+  color:#4f5054;
+  font-weight: bold;
+}
+
+/* Style du bloc Timer */
+#blocTimer {
+  margin-top: 12px;
+}
+
+#blocTimer p {
+  text-align: center;
+}
+
+/* Style du bouton annuler */
+#annuler {
+  width: 110px;
+  height: 35px;
+  border-radius: 2px;
+  border-radius: 15px;
+  margin: auto;
+  background-color: #f9cf72;
+  font-weight: bold;
+  font-size: 18px;
+  color: #636468;
+  display: none;
+}
+
+#actualisationVelos {
+  margin-top : 20px;
+  font-size: 15px;
+  color:#4f5054;
+  width: 100%;
+  display: none;
+}
+
+#actualisationVelos p {
+  text-align: center;
+  font-size: 18px;
+}
+
+#actualisationVelos span {
+  color: #5cadd3;
+  font-weight: bold;
+}
+
+#image_cycliste{
+  position:absolute;
+  left: 24%;
+  top: 300px;
+}
+
+#image_cycliste img {
+  width: 220px;
+  height: 220px;
+}
+
+
+
+
+
+/*********************************************************************************************************/
+/*                                         STYLE DU CANVAS SIGNATURE                                     */
+/*********************************************************************************************************/
+#canvas_container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Dimensions et style du blocSignature */
+#blocSignature {
+    margin-top: 60px;
+    display: none;
+    width: 30%;
+}
+
+/* Dimensions et style du titreSignature */
+#titreSignature {
+  display: flex;
+  justify-content: center;
+}
+
+/* Dimensions et style du blocSignature */
+#titreSignature h3 {
+  color: #f1b83c;
+  margin-left: 15px;
+  font-size: 16px;
+}
+
+/* Dimensions et position de l'image "crayon" du blocSignature */
+#titreSignature img {
+  width: 25px;
+  height: 25px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+/* Style de l'élément canvas */
+#canvas {
+  border: 3px #b2b4ba solid;
+  border-radius: 12px;
+  margin-left: 0px;
+}
+
+/* Style du bouton de sauvegarde de la signature */
+#button_container {
+  display: flex;
+  justify-content: center;
+}
+
+#btnSave {
+  margin: 0px 10px;
+  border-radius: 12px;
+  background: #f1b83c;
+  width: 25%;
+  font-size: 18px;
+}
+
+/* Style du bouton effacer de la signature */
+#btnClear {
+  margin: 0px 10px;
+  border-radius: 12px;
+  background: #f1b83c;
+  width: 25%;
+  font-size: 18px;
+}
+
+/* Style de l'image sauvegardée du canvas */
+#canvasImage {
+  border: 3px #b2b4ba solid;
+  border-radius: 12px;
+  display: none;
+  margin-left: 20px;
+  position:absolute;
+  right: 66px;
+}
+
+
+
+
+
+/*********************************************************************************************************/
+/*                                            STYLE DU FOOTER                                            */
+/*********************************************************************************************************/
+
+footer { /* Insertion d'une couleur de fond sur le bas de page */
+    background-color: #4f5054;
+    width: 100%;
+    border-radius: 30px;
+    margin-top: 100px;
+    /*opacity: 0.5;*/
+}
+footer h3 { /* Style du texte du titre du bloc de coordonnées */
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 25px;
+    color: #ffffff;
+    padding-top: 30px;
+}
+
+footer h3:before { /* Style du texte du titre du bloc de coordonnées */
+    content: " "; /* Création d'un bloc "vide" */
+      display: inline-block; /* Affichage inline-block pour que le bloc se comporte comme un élément inline */
+      vertical-align: middle; /* Alignement vertical du bloc */
+      width : 250px; /* Largeur du bloc créé */
+      height : 1px; /* Hauteur du bloc créé */
+      border-bottom: 1px #edeaea solid; /* Application d'une bordure pour créer le tiret */
+      margin-right: 20px;
+}
+
+footer h3:after { /* Style du texte du titre du bloc de coordonnées */
+    content: " "; /* Création d'un bloc "vide" */
+      display: inline-block; /* Affichage inline-block pour que le bloc se comporte comme un élément inline */
+      vertical-align: middle; /* Alignement vertical du bloc */
+      width : 250px; /* Largeur du bloc créé */
+      height : 1px; /* Hauteur du bloc créé */
+      border-bottom: 1px #edeaea solid; /* Application d'une bordure pour créer le tiret */
+      margin-left: 20px;
+}
+
+footer p { /* Style du texte du titre du bloc de coordonnées */
+    font-size: 20px;
+    color: #ffffff;
+}
+
+footer p span { /* Style du texte du titre du bloc de coordonnées */
+    font-weight: bold;
+    color: #f1b83c;
+}
+
+footer #bloc_coordonnees {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#coordonnees {
+  width: 30%;
+}
+
+.logo_titre_footer {
+  position: relative;
+  height: 125px;
+  width: 13%;
+}
+
+footer a {
+  color: #03a79d;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+
+
+
+
+
+/*********************************************************************************************************/
+/*                                              MEDIAS QUERIES                                           */
+/*********************************************************************************************************/
+
+
+/* Format ecran - Taille moyenne */
+@media all and (max-width: 1400px){
+
+  #aideNom {
+    left: 370px;
+    top: 4px;
+  }
+
+  #aidePrenom {
+    left: 317px;
+    top: 30px;
+  }
+
+  #messageReservation {
+    width: 760px;
+  }
+
+  #actualisationVelos p {
+    padding-left: 40px;
+  }
+}
+
+/* Format ecran - Taille petite */
+@media all and (max-width: 1350px){
+
+  #aideNom {
+    left: 370px;
+    top: 4px;
+  }
+
+  #aidePrenom {
+    left: 317px;
+    top: 30px;
+  }
+
+  #messageReservation {
+    width: 530px;
+  }
+
+  #actualisationVelos p {
+    padding-left: 0px;
+  }
+}
+
+@media all and (max-width: 1200px) {
+
+  header h1 {
+    font-size: 40px;
+  }
+
+  header h2 {
+    font-size: 18px;
+  }
+
+  .logo_titre {
+      margin-left: 8px;
+  }
+
+  #titre_slogan span {
+    font-size: 25px;
+  }
+
+  #accueil_site h2 {
+    text-align: center;
+    font-size: 18px;
+  }
+
+  #accueil_application h2 {
+    font-size: 1.5em;
+  }
+
+  #mapid {
+    width: 80%;
+  }
+
+  #panneau {
+    width: 78%;
+    margin-top: 40px;
+    margin-left: 0px;
+  }
+
+  #information {
+    width: 97%;
+  }
+
+  #information span {
+    font-size: 18px;
+  }
+
+  #information p {
+    left: 6px;
+    top: 0px;
+    font-size: 16px;
+    margin-left: 36px;
+    padding: 10px;
+  }
+
+  #image_cycliste img {
+    width: 240px;
+    height: 240px;
+  }
+
+  #image_cycliste {
+    left: 35%;
+  }
+
+  #station_non_disponible {
+    width: 86%;
+    height: 60px;
+    font-size: 13px;
+  }
+
+  #image_nocycliste img {
+    width: 85px;
+    height: 85px;
+    left: 36%;
+  }
+
+  .fa-info-circle {
+    left: 9px;
+    top: 27px;
+  }
+
+  #station_disponible {
+    width: 95%;
+    height: 50px;
+    font-size: 16px;
+    margin-top: 18px;
+  }
+
+  #station_non_disponible {
+    width: 95%;
+    font-size: 16px;
+  }
+
+  #image_nocycliste img {
+    left: 45%;
+  }
+
+  #votre_reservation {
+    font-size: 16px;
+    width: 97%;
+  }
+
+  .fa-exclamation-triangle {
+    left: 16px;
+    top: 25px;
+  }
+
+  #confirmationReservation {
+    width: 100%;
+  }
+
+  #messageReservation {
+    width: 78%;
+    margin: auto;
+    margin-top: 25px;
+  }
+
+  #blocSignature {
+    width: 53%;
+  }
+
+  #titreSignature img {
+    margin-left: 0px;
+  }
+
+  #canvas {
+    margin-left: 0px;
+  }
+
+  #coordonnees {
+    width: 50%;
+  }
+
+  .logo_titre_footer {
+    width: 18%;
+  }
+
+
+element {
+    display: block;
+    font-weight: bold;
+    background-color:
+rgb(209, 27, 27);
+color:
+    rgb(245, 245, 245);
+}
+#messageReservation {
+    width: 78%;
+    margin: auto;
+        margin-top: auto;
+    margin-top: 25px;
+}
+#messageReservation {
+    width: 530px;
+}
+#messageReservation {
+    width: 760px;
+    font-size: 15px;
+}
+
+
+/* Format tablette - Type Ipad Pro */
+@media all and (max-width: 1024px) {
+
+  .logo_titre {
+      margin-left: 10px;
+    }
+
+    #accueil_application p {
+      margin: 10px 155px 10px 155px;
+    }
+
+    #aideNom {
+      left: 278px;
+      top: 4px;
+    }
+
+    #aidePrenom {
+      left: 265px;
+      top: 38px;
+    }
+
+    #blocSignature {
+      width: 54%;
+    }
+
+    #messageReservation {
+      width: 424px;
+      font-size: 12px;
+    }
+
+    #confirmationReservation {
+      width: 81%;
+    }
+
+    #messageReservation {
+      font-size: 16px;
+      width: 97%;
+    }
+
+    #blocTimer, #actualisationVelos {
+      width: 100%;
+    }
+
+    #timer {
+      font-size: 18px;
+    }
+
+    footer h3::before, footer h3:after {
+      width: 200px;
+    }
+
+    footer p {
+      font-size: 16px;
+    }
+
+}
+
+
+
+
+@media all and (max-width: 991px) {
+
+  .logo_titre {
+    margin-left: 0px;
+  }
+
+  header h1 {
+    font-size: 34px;
+  }
+
+  #titre_slogan {
+    margin-left: 0px;
+  }
+
+  #titre_slogan {
+    width: 27%;
+  }
+
+  header h2 {
+    font-size: 18px;
+  }
+
+  #accueil_site h2 {
+    font-size: 16px;
+  }
+
+  #slider_container {
+    width: 690px;
+  }
+
+  #slider {
+    width: 690px;
+  }
+
+  #slider img {
+    width: 690px;
+  }
+
+  #pause, #play {
+    width: 690px;
+  }
+
+  #mapid {
+    width: 100%;
+    height: 450px;
+  }
+
+  #panneau {
+    width: 100%;
+  }
+
+  #image_cycliste {
+    left: 32%;
+  }
+
+  #image_nocycliste img {
+    left: 45%;
+  }
+
+  #confirmationReservation {
+    width: 100%;
+  }
+
+  #messageReservation {
+    width: 97%;
+    margin-top: 0px;
+  }
+
+  #blocSignature {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  #titreSignature img {
+    margin-left: 0px;
+  }
+
+  footer {
+    margin-top: 20px;
+  }
+
+  footer h3::before, footer h3::after {
+    width: 120px;
+  }
+
+  footer h3 {
+    font-size: 20px;
+  }
+
+  .logo_titre_footer {
+    width: 22%;
+  }
+
+  footer a {
+    font-size: 16px;
+  }
+}
+
+
+
+/* Format tablette - Type Ipad */
+@media all and (max-width: 767px) {
+
+  #bloc_page {
+    width: 100%;
+  }
+
+  .logo_1 img {
+    width: 90px;
+    height: 90px;
+  }
+
+  .logo_2 img {
+    width: 15px;
+    height: 15px;
+  }
+
+  .logo_2 {
+    left: 91px;
+    top: 63px;
+}
+
+  header h1 {
+    font-size: 34px;
+  }
+
+  .logo_titre {
+    margin-left: 0px;
+  }
+
+  #titre_slogan {
+    margin-left: 28px;
+  }
+
+  #titre_slogan span {
+    font-size: 25px;
+
+  }
+  #titre_principal {
+    margin-left: 0px;
+  }
+
+  header h1 {
+    font-size: 25px;
+  }
+
+  header h2 {
+    font-size: 16px;
+  }
+
+  #titre_slogan span {
+    font-size: 20px;
+  }
+
+  #accueil_site {
+    margin-top: 140px;
+  }
+
+  #accueil_site_title {
+    margin: 140px auto 0px auto;
+    width: 90%;
+  }
+
+  #accueil_site i {
+    font-size: 30px;
+  }
+
+  #accueil_site span {
+    margin-right: 10px;
+  }
+
+  #accueil_site h2 {
+    font-size: 14px;
+  }
+
+  #slider_container {
+    position: relative;
+    width: 500px;
+    height: 335px;
+    margin-top: 70px;
+  }
+
+  #slider {
+    width: 500px;
+    height: 335px;
+  }
+
+  #slider img {
+    width: 500px;
+    height: 335px;
+  }
+
+  #fleche_gauche_slider a {
+    top: 130px;
+  }
+
+  #fleche_droite_slider a {
+    top: 130px;
+  }
+
+  #pause, #play {
+    width: 500px;
+    height: 335px;
+  }
+
+  #blocApplication {
+    display: block;
+    margin-top: 40px;
+  }
+
+  #accueil_application h2 {
+    margin-top: 45px;
+    font-size: 1.3em;
+  }
+
+  #accueil_application p {
+    margin: 10px 90px 10px 90px;
+  }
+
+  #mapid {
+    width: 87%;
+    height: 380px;
+    margin-left: 6%;
+  }
+
+  #panneau {
+    width: 84%;
+    height: 530px;
+    margin-left: 6%;
+    margin-top: 34px;
+    padding: 10px;
+  }
+
+  #adresse, #places, #velos {
+    font-size: 18px;
+    margin-left: 6px;
+  }
+
+  #information, #votre_reservation, #alerte {
+    font-size: 15px;
+    width: 94%;
+    height: 65px;
+    font-size: 20px;
+    margin-left: 1%;
+  }
+
+  #information p, #votre_reservation p, #alerte p {
+    left: 18px;
+    top: 0px;
+    font-size: 15px;
+  }
+
+  #image_cycliste img {
+    width: 200px;
+    height: 200px;
+  }
+
+  #image_cycliste {
+    left: 30%;
+    top: 300px;
+  }
+
+  #station_disponible, #station_non_disponible {
+    left: 8px;
+    top: 275px;
+    width: 90%;
+    height: 60px;
+    font-size: 15px;
+    margin-left: 1%;
+    margin-top: 15px;
+  }
+
+  #image_nocycliste img {
+    left: 213px;
+    top: 415px;
+  }
+
+  #station_disponible p, #station_non_disponible p {
+    text-align: center;
+  }
+
+  #formulaire {
+    position: relative;
+    margin-top: 35px;
+    margin-left: 0px;
+  }
+
+  label, input {
+    font-size: 16px;
+  }
+
+  #aideNom {
+    left: 410px;
+  }
+
+  #aidePrenom {
+    left: 399px;
+    top: 41px;
+  }
+
+  #reserver {
+    width: 30%;
+  font-size: 14px;
+  }
+
+  #blocReservation {
+    display: block;
+    width: 88%;
+    margin-left: 6%;
+  }
+
+  #messageReservation {
+    width: 95%;
+    font-size: 14px;
+  }
+
+  #blocSignature {
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+
+  #canvas {
+    margin-left: 0px;
+  }
+
+  #titreSignature {
+    display: flex;
+    margin-left: 0px;
+  }
+
+
+  #titreSignature img {
+    margin-left: 0px;
+    width: 25px;
+    height: 25px;
+  }
+
+  #titreSignature h3 {
+    margin-left: 18px;
+    font-size: 16px;
+  }
+
+  #button_container {
+    width: 100%;
+  }
+
+  #btnSave, #btnClear {
+    width: 20%;
+    font-size: 14px;
+  }
+
+  #confirmationReservation {
+    width: 100%;
+  }
+
+  #blocTimer, #actualisationVelos {
+  width: 100%;
+  }
+
+  #actualisationVelos p {
+    font-size: 16px;
+  }
+
+  #timer {
+    font-size: 16px;
+  }
+
+  #annuler {
+    font-size: 14px;
+  }
+
+  footer {
+    width: 88%;
+    margin-left: 6%;
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+
+  footer h3::before, footer h3::after {
+    width: 75px;
+  }
+
+  .logo_titre_footer {
+    width: 30%;
+  }
+
+  footer p {
+    font-size: 14px;
+  }
+}
+
+@media all and (max-width: 576px) {
+
+  header {
+    width: 100%;
+  }
+
+  .logo_titre {
+    width: 25%;
+  }
+
+  .logo_1 img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .logo_2 {
+    left: 75px;
+    top: 45px;
+  }
+
+  .logo_2 img {
+    width: 10px;
+    height: 10px;
+  }
+
+  #titre_principal {
+    width: 50%;
+  }
+
+  header h1 {
+    font-size: 21px;
+  }
+
+  #titre_slogan {
+    width: 25%;
+    margin-left: 0px;
+  }
+
+  #slider_container {
+    position: relative;
+    width: 390px;
+    height: 275px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  #slider {
+    width: 390px;
+    height: 275px;
+  }
+
+  #slider img {
+    width: 390px;
+    height: 275px;
+  }
+
+  #fleche_gauche_slider a, #fleche_droite_slider a {
+    top: 115px;
+    font-size: 30px;
+  }
+
+  #pause, #play {
+    width: 390px;
+    height: 295px;
+  }
+
+  #pause a, #play a {
+    font-size: 45px;
+  }
+
+  .point {
+    width: 12px;
+    height: 12px;
+  }
+
+  #accueil_application p {
+    margin: 10px 70px 10px 70px;
+    font-size: 14px;
+  }
+
+  #accueil_application h2 {
+    margin-top: 40px;
+    font-size: 1.1em;
+  }
+
+  #mapid {
+    width: 95%;
+    height: 320px;
+    margin-left: 2%;
+  }
+
+  #panneau {
+    width: 90%;
+    height: 530px;
+    margin-left: 10px;
+    margin-top: 34px;
+    padding: 2%;
+  }
+
+  #information, #votre_reservation, #alerte {
+    font-size: 15px;
+    width: 94%;
+    height: 65px;
+    font-size: 20px;
+    margin-left: 6px;
+  }
+
+  #information p, #votre_reservation p, #alerte p {
+    left: 2px;
+    top: 0px;
+    font-size: 13px;
+  }
+
+  #image_cycliste {
+    left: 25%;
+    top: 300px;
+  }
+
+  #station_disponible, #station_non_disponible {
+    left: 8px;
+    top: 275px;
+    width: 90%;
+    height: 60px;
+    font-size: 14px;
+    margin-left: 6px;
+    margin-top: 15px;
+  }
+
+  #image_nocycliste img {
+    left: 40%;
+    top: 415px;
+  }
+
+  #blocReservation {
+    display: block;
+    width: 97%;
+    margin-left: 1%;
+  }
+
+  #adresse, #places, #velos {
+    font-size: 15px;
+    margin-left: 6px;
+  }
+
+  label, input {
+    font-size: 14px;
+  }
+
+  #confirmationReservation {
+    width: 100%;
+  }
+
+  #messageReservation {
+    width: 370px;
+    font-size: 11px;
+  }
+
+  #blocSignature {
+    margin-left: 0px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  #titreSignature {
+    margin-left: 5px;
+  }
+
+  #titreSignature img {
+    margin-left: 0px;
+  }
+
+  #titreSignature h3 {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  #canvas {
+    margin-left: 0px;
+  }
+
+  #button_container {
+    width: 100%;
+  }
+
+  #blocTimer, #actualisationVelos {
+    width: 100%;
+  }
+
+  #timer {
+    margin-top: 25px;
+    font-size: 14px;
+  }
+
+  #actualisationVelos p {
+    font-size: 14px;
+  }
+
+  #information, #votre_reservation, #alerte {
+    font-size: 14px;
+  }
+
+  footer {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+
+  footer h3 {
+    font-size: 18px;
+  }
+
+  footer h3::before, footer h3::after {
+    width: 25px;
+  }
+
+  .logo_titre_footer {
+    width: 35%;
+  }
+
+  #coordonnees {
+    width: 60%;
+  }
+}
+
+
+/* Format mobile - Type Iphone X */
+@media all and (max-width: 415px) {
+
+  header {
+    width: 100%;
+  }
+
+  .logo_titre {
+    width: 25%;
+  }
+
+  .logo_1 img {
+    width: 65px;
+    height: 65px;
+  }
+
+  .logo_2 {
+    left: 75px;
+    top: 45px;
+  }
+
+  .logo_2 img {
+    width: 10px;
+    height: 10px;
+  }
+
+  #titre_principal {
+    width: 50%;
+  }
+
+  header h1 {
+    font-size: 21px;
+  }
+
+  #titre_slogan {
+    width: 25%;
+    margin-left: 0px;
+  }
+
+  #slider_container {
+    position: relative;
+    width: 360px;
+    height: 275px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  #slider {
+    width: 360px;
+    height: 275px;
+  }
+
+  #slider img {
+    width: 360px;
+    height: 275px;
+  }
+
+  #fleche_gauche_slider a, #fleche_droite_slider a {
+    top: 115px;
+    font-size: 30px;
+  }
+
+  #pause, #play {
+    width: 360px;
+    height: 295px;
+  }
+
+  #pause a, #play a {
+    font-size: 45px;
+  }
+
+  .point {
+    width: 12px;
+    height: 12px;
+  }
+
+  #accueil_application p {
+    margin: 10px 70px 10px 70px;
+    font-size: 14px;
+  }
+
+  #accueil_application h2 {
+    margin-top: 40px;
+    font-size: 1.1em;
+  }
+
+  #mapid {
+    width: 95%;
+    height: 320px;
+    margin-left: 2%;
+  }
+
+  #panneau {
+    width: 91%;
+    height: 530px;
+    margin-left: 2%;
+    margin-top: 34px;
+  }
+
+  #panneau h2 {
+    font-size: 18px;
+  }
+
+  #information, #votre_reservation, #alerte {
+    font-size: 15px;
+    width: 92%;
+    height: 65px;
+    font-size: 20px;
+    margin-left: 6px;
+  }
+
+  #information p, #votre_reservation p, #alerte p {
+    left: 2px;
+    top: 0px;
+    font-size: 13px;
+  }
+
+  #image_cycliste {
+    left: 22%;
+    top: 300px;
+  }
+
+  #station_disponible, #station_non_disponible {
+    left: 8px;
+    top: 275px;
+    width: 88%;
+    height: 60px;
+    font-size: 13px;
+    margin-left: 6px;
+    margin-top: 15px;
+  }
+
+  #image_nocycliste img {
+    left: 40%;
+    top: 415px;
+  }
+
+  #blocReservation {
+    display: block;
+    width: 96%;
+    margin-left: 2%;
+  }
+
+  #adresse, #places, #velos {
+    font-size: 15px;
+    margin-left: 6px;
+  }
+
+  label, input {
+    font-size: 14px;
+  }
+
+  #confirmationReservation {
+    width: 100%;
+  }
+
+  #messageReservation {
+    width: 94%;
+    font-size: 12px;
+  }
+
+  .fa-exclamation-triangle {
+    left: 10px;
+    top: 29px;
+  }
+
+  #blocSignature {
+    margin-left: 0px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  #titreSignature {
+    margin-left: 0px;
+  }
+
+  #titreSignature img {
+    width: 20px;
+    height: 20px;
+    margin-left: 0px;
+  }
+
+  #titreSignature h3 {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  #btnSave, #btnClear {
+    font-size: 12px;
+  }
+
+  #canvas {
+    margin-left: 0%;
+  }
+
+  #button_container {
+    width: 100%;
+  }
+
+  #blocTimer, #actualisationVelos {
+    width: 100%;
+  }
+
+  #timer {
+    margin-top: 25px;
+    font-size: 14px;
+  }
+
+  #actualisationVelos p {
+    font-size: 14px;
+  }
+
+  #information, #votre_reservation, #alerte {
+    font-size: 14px;
+  }
+
+  footer {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+
+  footer h3 {
+    font-size: 18px;
+  }
+
+  footer h3::before, footer h3::after {
+    width: 25px;
+  }
+
+  .logo_titre_footer {
+    width: 35%;
+  }
+
+  #coordonnees {
+    width: 65%;
+  }
+
+  footer a {
+    font-size: 14px;
+  }
+
+}
+
+/* Format mobile - Type Galaxy Note 3 */
+@media all and (max-width: 380px) {
+  header {
+    width: 100%;
+  }
+
+  header h2 {
+    font-size: 12px;
+  }
+
+  #titre_slogan span {
+    font-size: 14px;
+  }
+
+  .logo_titre {
+    width: 25%;
+  }
+
+  .logo_1 {
+    position: absolute;
+    left: 6px;
+    top: 32px;
+    width: 60px;
+    height: 110px;
+  }
+
+  .logo_1 img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo_2 {
+    left: 38px;
+    top: 51px;
+  }
+
+  .logo_2 img {
+    width: 10px;
+    height: 10px;
+  }
+
+  #titre_principal {
+    width: 50%;
+  }
+
+  header h1 {
+    font-size: 21px;
+  }
+
+  #titre_slogan {
+    width: 25%;
+    margin-left: 0px;
+  }
+
+  #titre_slogan span {
+    font-size: 14px;
+  }
+
+  header h2 {
+    font-size: 12px;
+  }
+
+  #slider_container {
+    position: relative;
+    width: 315px;
+    height: 230px;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+
+  #slider {
+    width: 315px;
+    height: 230px;
+  }
+
+  #slider img {
+    width: 315px;
+    height: 230px;
+  }
+
+  #fleche_gauche_slider a, #fleche_droite_slider a {
+    top: 92px;
+    font-size: 28px;
+  }
+
+  #pause, #play {
+    width: 315px;
+    height: 230px;
+  }
+
+  #pause a, #play a {
+    font-size: 35px;
+  }
+
+  .point {
+    width: 11px;
+    height: 11px;
+  }
+
+  #accueil_application p {
+    margin: 10px 45px 10px 45px;
+    font-size: 14px;
+  }
+
+  #accueil_application h2 {
+    margin-top: 40px;
+    font-size: 1.1em;
+  }
+
+  #mapid {
+    width: 95%;
+    height: 320px;
+    margin-left: 2%;
+  }
+
+  #panneau {
+    width: 91%;
+    height: 530px;
+    margin-left: 2%;
+    margin-top: 34px;
+  }
+
+  #panneau h2 {
+    font-size: 18px;
+  }
+
+  #information, #votre_reservation, #alerte {
+    font-size: 15px;
+    width: 90%;
+    height: 65px;
+    font-size: 20px;
+    margin-left: 6px;
+  }
+
+  #information p, #votre_reservation p, #alerte p {
+    left: 2px;
+    top: 0px;
+    font-size: 13px;
+  }
+
+  #image_cycliste {
+    left: 16%;
+    top: 300px;
+  }
+
+  #station_disponible, #station_non_disponible {
+    left: 8px;
+    top: 275px;
+    width: 84%;
+    height: 60px;
+    font-size: 13px;
+    margin-left: 6px;
+    margin-top: 15px;
+  }
+
+  #image_nocycliste img {
+    left: 115px;
+    top: 415px;
+  }
+
+  #nom, #prenom {
+    margin-left: 12px;
+  }
+
+  #prenom {
+    margin-left: 19px;
+    width: 184px;
+}
+
+  #blocReservation {
+    display: block;
+    width: 96%;
+    margin-left: 2%;
+  }
+
+  #adresse, #places, #velos {
+    font-size: 15px;
+    margin-left: 6px;
+  }
+
+  label, input {
+    font-size: 10px;
+  }
+
+  #confirmationReservation {
+    width: 98%;
+  }
+
+  #reserver {
+    width: 30%;
+    font-size: 12px;
+  }
+
+  #messageReservation {
+    width: 94%;
+    font-size: 12px;
+  }
+
+  .fa-exclamation-triangle {
+    left: 10px;
+    top: 29px;
+  }
+
+  #blocSignature {
+    margin-left: 0px;
+    margin-top: 20px;
+    width: 100%;
+  }
+
+  #titreSignature {
+    margin-left: 0px;
+  }
+
+  #titreSignature img {
+    width: 15px;
+    height: 15px;
+    margin-top: 10px;
+    margin-left: 0px;
+  }
+
+  #btnSave, #btnClear {
+    font-size: 12px;
+  }
+
+  #titreSignature img {
+    margin-left: 0px;
+  }
+
+  #titreSignature h3 {
+    margin-left: 10px;
+    font-size: 12px;
+  }
+
+  #canvas {
+    margin-left: 0%;
+  }
+
+  #button_container {
+    width: 100%;
+  }
+
+  #blocTimer, #actualisationVelos {
+    width: 100%;
+  }
+
+  #timer {
+    margin-top: 25px;
+    font-size: 14px;
+  }
+
+  #actualisationVelos p {
+    font-size: 14px;
+  }
+
+  #information, #votre_reservation, #alerte {
+    font-size: 14px;
+  }
+
+  footer {
+    width: 98%;
+    margin-left: 1%;
+    margin-top: 50px;
+    margin-bottom: 0px;
+  }
+
+  footer h3 {
+    font-size: 16px;
+  }
+
+  footer h3::before, footer h3::after {
+    width: 0px;
+  }
+
+  footer p {
+    font-size: 12px;
+  }
+
+  .logo_titre_footer {
+    width: 34%;
+  }
+
+  #coordonnees {
+    width: 130%;
+  }
+
+  footer a {
+    font-size: 14px;
+  }
+
+}
+
+
+@media all and (max-width: 320px) {
+  header {
+    width: 365px;
+    margin-left: 0px;
+  }
+
+  header h1 {
+    font-size: 22px;
+  }
+
+  header h2 {
+    font-size: 10px;
+  }
+
+  .logo_1 {
+    left: 7px;
+    top: 10px;
+    width: 52px;
+    height: 52px;
+  }
+
+  .logo_1 img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .logo_2 {
+    left: 39px;
+    top: 30px;
+    width: 12px;
+    height: 12px;
+  }
+
+  .logo_2 img {
+    width: 11px;
+    height: 11px;
+  }
+
+  .logo_titre {
+    margin-left: 0px;
+    width: 60px;
+    height: 65px;
+  }
+
+  #titre_slogan {
+    margin-left: 0px;
+    width: 113px;
+  }
+
+  #titre_slogan span {
+    font-size: 15px;
+  }
+
+  #titre_principal {
+    margin-left: 0px;
+    width: 150px;
+  }
+
+  #accueil_site {
+    margin-top: 100px;
+    width: 303px;
+    margin-left: 10px;
+  }
+
+  #accueil_site_title {
+    width: 95%;
+  }
+
+  #accueil_site i {
+    font-size: 25px;
+  }
+
+  #accueil_site h2 {
+    font-size: 13px;
+  }
+
+  #slider_container {
+    position: relative;
+    width: 315px;
+    height: 211px;
+    margin-left: 0px;
+    margin-top: 20px;
+  }
+
+  #fleche_gauche_slider a, #fleche_droite_slider a {
+    font-size: 25px;
+  }
+
+  #fleche_gauche_slider a, #fleche_droite_slider a {
+    top: 77px;
+  }
+
+  #pause, #play {
+    width: 315px;
+    height: 211px;
+    font-size: 32px;
+  }
+
+  #indicateur {
+    margin-top: 20px;
+    width: 315px;
+    margin-left: 6px;
+  }
+
+  .point {
+    width: 11px;
+    height: 11px;
+  }
+
+  #blocApplication {
+    display: block;
+  }
+
+  #accueil_application {
+    width: 320px;
+    margin-left: 5px;
+  }
+
+  #accueil_application h2 {
+    font-size: 1em;
+    margin-top: 30px;
+  }
+
+  #accueil_application p {
+    margin: 10px 10px 10px 10px;
+    font-size: 0.8em;
+  }
+
+  #mapid {
+    width: 312px;
+    height: 312px;
+    margin-left: 4px;
+  }
+
+  #panneau {
+    width: 293px;
+    height: 460px;
+    margin-left: 4px;
+    margin-top: 10px;
+    padding: 8px;
+  }
+
+  #panneau h2 {
+    font-size: 18px;
+  }
+
+  #adresse, #places, #velos {
+    font-size: 12px;
+    margin-left: 0px;
+  }
+
+  #information, #votre_reservation, #alerte {
+    width: 273px;
+    height: 60px;
+    font-size: 16px;
+    margin-left: 0px;
+  }
+
+  #information p, #votre_reservation p, #alerte p {
+    left: 10px;
+    top: 0px;
+    font-size: 12px;
+  }
+
+  #station_disponible, #station_non_disponible {
+    width: 272px;
+    height: 58px;
+    font-size: 13px;
+    margin-left: 0px;
+    margin-top: 0px;
+    top: 255px;
+  }
+
+  #formulaire {
+    position: relative;
+    margin-top: 45px;
+    margin-left: 0px;
+  }
+
+  #nom {
+    margin-left: 36px;
+    width: 175px;
+  }
+
+  #prenom {
+    margin-left: 19px;
+    width: 175px;
+  }
+
+  #aideNom {
+    left: 200px;
+  }
+
+  #aidePrenom {
+    left: 186px;
+    top: 36px;
+  }
+
+  #reserver {
+    margin-left: 94px;
+    margin-top: 33px;
+  }
+
+  #image_cycliste {
+    left: 65px;
+    top: 255px;
+  }
+
+  #image_cycliste img {
+    width: 170px;
+    height: 170px;
+  }
+
+  #image_nocycliste img {
+    left: 112px;
+  }
+
+  #blocReservation {
+    display: block;
+    width: 312px;
+    margin-left: 3px;
+  }
+
+  #confirmationReservation {
+    width: 312px;
+  }
+
+  #messageReservation {
+    width: 288px;
+    font-size: 13px;
+    height: 30px;
+  }
+
+  #blocSignature {
+    margin-left: 0px;
+    margin-top: 16px;
+  }
+
+  #titreSignature h3 {
+    margin-left: 12px;
+    font-size: 12px;
+  }
+
+  canvas {
+    width: 308px;
+  }
+
+  #btnSave {
+    margin-left: 105px;
+}
+
+  #blocTimer, #actualisationVelos {
+  width: 312px;
+  font-size: 13px;
+  }
+
+  #annuler {
+    margin-left: 106px;
+  }
+
+  footer {
+    width: 315px;
+    margin-left: 2px;
+    margin-top: 18px;
+  }
+
+  footer h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+    padding-top: 25px;
+  }
+
+  footer h3:before {
+    width: 12px;
+  }
+
+  footer h3:after {
+    width: 12px;
+  }
+
+  #bloc_coordonnees {
+    width: 315px;
+  }
+
+  #coordonnees {
+    margin-left: 15px;
+  }
+
+  footer p {
+    text-align: justify;
+    font-size: 10px;
+  }
+
+  footer a {
+    font-size: 12px;
+    margin-left: 38px;
+  }
+}

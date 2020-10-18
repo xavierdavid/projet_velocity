@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"> <!-- Encodage affichage Internet Explorer -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> <!-- Encodage affichage mobiles -->
+    <!-- Site title -->
+    <title>Carte interactive de location de vélos</title>
+    <!-- Google Fonts Link -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,900&display=swap" rel="stylesheet">
+    <!-- Fontawesome link -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- Leaflet CSS link -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css"
+      integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
+      crossorigin=""/>
+    <!-- CSS Link -->
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+
+  <body>
+
+    <div id="bloc_page"> <!-- Bloc principal de la page -->
+
+      <header> <!-- Bloc d'en-tête de la page -->
+        <div class="logo_titre"> <!-- Logo de la page -->
+          <div class="logo_1"><img src="../img/logo_cycliste.png" alt="logo cycliste"></div>
+          <div class="logo_2"><img src="../img/logo_marqueur.png" alt="logo_marqueur"></div>
+        </div>
+        <div id="titre_principal"><h1 >Cyclo'City Lyon</h1></div>
+        <div id="titre_slogan"><h2 >Découvrez votre ville ... <span>"à vélo !"</span></h2></div>
+      </header>
+
+      <div id="accueil_site">
+        <div id="accueil_site_title">
+          <p><span><i class="fas fa-bicycle fa-3x"></i></span></p>
+          <h2>Bienvenue sur Cyclo'City, le site de réservation de vélos en ligne.</h2>
+        </div>
+      </div>
+
+      <div id="slider_container"> <!-- Conteneur du slider - Fenêtre de visualisation -->
+
+        <!-- Flèches de navigation du slider -->
+        <div id="fleche_gauche_slider"> <!-- Superposition de deux icônes (cercle et flèche gauche) à l'aide de la classe "fa-stack" de Fontawesome -->
+          <p><a href="#"><span class="fa-stack"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-chevron-left fa-stack-1x fa-inverse"></i></span></a></p>
+        </div>
+        <div id="fleche_droite_slider">
+          <p><a href="#"><span class="fa-stack"><i class="fas fa-circle fa-stack-2x"></i><i class="fas fa-chevron-right fa-stack-1x fa-inverse"></i></span></a></p>
+        </div>
+
+        <!-- Boutons pause et play du slider -->
+        <div id="pause">
+          <p><a href="#"><span><i class="fas fa-pause-circle"></i></span></a></p>
+        </div>
+        <div id="play">
+          <p><a href="#"><span><i class="fas fa-play-circle"></i></span></a></p>
+        </div>
+
+        <!-- Fenêtre du slider contenant les images -->
+        <div id="slider">
+            <img src="../img/image_cyclo_5.jpg" alt="cinquième-image" id="lastClone">
+            <img src="../img/image_cyclo_1.jpg" alt="premiere-image">
+            <img src="../img/image_cyclo_2.jpg" alt="deuxième-image">
+            <img src="../img/image_cyclo_3.jpg" alt="troisième-image">
+            <img src="../img/image_cyclo_4.jpg" alt="quatrième-image">
+            <img src="../img/image_cyclo_5.jpg" alt="cinquième-image">
+            <img src="../img/image_cyclo_1.jpg" alt="premiere-image" id="firstClone">
+        </div>
+
+      </div> <!-- Fin du slider_container -->
+
+      <!-- Indicateurs de défilement du slider -->
+      <div id="indicateur">
+        <span class="point"></span> <!-- Sera toujours masqué car correspond à l'image "lastClone" -->
+        <span class="point" onclick="diaporama.imageClic(1)"></span> <!--La propriété onclick définit un gestionaire d'évènement de type "Click" pour l'élément courant, géré par la méthode imageClic(n) de l'objet diaporama, ayant pour paramètre n=1 -->
+        <span class="point" onclick="diaporama.imageClic(2)"></span>
+        <span class="point" onclick="diaporama.imageClic(3)"></span>
+        <span class="point" onclick="diaporama.imageClic(4)"></span>
+        <span class="point" onclick="diaporama.imageClic(5)"></span>
+        <span class="point"></span> <!-- Sera toujours masqué car correspond à l'image "firstClone" -->
+      </div>
+
+      <div id="accueil_application">
+        <h2>Réservez un vélo dès maintenant</h2>
+        <p><span class="fa-stack"><i class="fas fa-circle fa-stack-2x fa-inverse"></i><i class="fas fa-circle fa-stack-1x"></i></span></p> <!-- Icône "point bleu" sur fond blanc du bloc "services" -->
+        <p>Vous souhaitez découvrir Lyon en toute liberté ? ... N'hésitez pas à réserver un vélo ! ... en quelques clics, c'est simple et rapide !</p>
+      </div>
+
+
+      <section id="blocApplication"> <!-- Bloc dédié l'application -->
+
+        <div id="mapid"></div> <!-- Bloc de la carte intéractive de location de vélos -->
+
+        <aside id="panneau"> <!-- Bloc panneau d'information et de réservation -->
+          <h2>Détails de la station</h2>
+          <div id="information">
+            <span><i class="fas fa-info-circle fa-2x"></i></span>
+            <p>Cliquez sur un marqueur de la carte afin d'obtenir les informations concernant la station correspondante.</p>
+          </div>
+
+          <div id="image_cycliste"><img src="../img/petit_cycliste.jpg" alt="petit_cycliste"></div>
+          <div id="image_nocycliste"><img src="../img/no-bicycles.png" alt="pas_de_vélo"></div>
+          <div id="alerte">
+            <span><i class="fas fa-exclamation-triangle fa-2x"></i></span>
+            <p>Il y a déjà une réservation en cours, veuillez l'annuler afin de pouvoir effectuer une nouvelle réservation.</p>
+          </div>
+          <div id="votre_reservation">
+            <span><i class="fas fa-exclamation-triangle fa-2x"></i></span>
+            <p>Votre demande de réservation a été prise en compte. Vous devez maintenant signer ci-dessous pour la valider définitivement.</p>
+          </div>
+          <br>
+          <div id="adresse"> Adresse : <span id="contenuAdresse"></span></div>
+          <br>
+          <div id="places"><span id="nombrePlaces"></span> emplacement(s) libre(s)</div>
+          <div id="velos"><span id="nombreVelos"></span> vélo(s) disponible(s)</div>
+          <br>
+          <div id="station_non_disponible"> <!-- Bloc affiché si la station est non disponible -->
+            <p>La station n'est pas disponible, veuillez choisir une autre station.</p>
+          </div>
+          <br>
+          <div id="station_disponible"> <!-- Bloc affiché si la station est disponible -->
+            <p>La station est disponible, vous pouvez réserver un vélo en utilisant le formulaire ci-dessous :</p>
+            <form id="formulaire"> <!-- Bloc formulaire -->
+              <p>
+                <label for="nom">Nom </label> :
+                <input type="text" name="nom" id="nom" required>
+                <span id="aideNom"></span>
+              </p>
+              <p>
+                <label for="prenom">Prénom </label> :
+                <input type="text" name="prenom" id="prenom" required>
+                <span id="aidePrenom"></span>
+              </p>
+              <input type="submit" value="Réserver" id="reserver"> <!-- Bouton de réservation -->
+            </form> <!-- Fin du bloc formulaire -->
+          </div>
+        </aside> <!-- Fin du bloc panneau d'information et de réservation -->
+
+      </section> <!-- Fin du bloc dédié à l'application -->
+
+
+      <section id="blocReservation"> <!-- Bloc dédié à la réservation -->
+
+        <div id="confirmationReservation">
+            <div id="messageReservation"></div> <!-- Affichage de la réservation -->
+            <div id="blocTimer"><p><span id="timer"></span></p></div> <!-- Affichage du timer -->
+            <div id="actualisationVelos"><p>Suite à votre réservation, il ne reste plus que <span id="velosRestant"></span> vélo(s) dans la station.</p></div>
+            <button id="annuler">Annuler</button> <!-- Bouton d'annulation -->
+        </div>
+
+        <div id="blocSignature">
+          <div id="titreSignature">
+            <img src="../img/pencil.png" alt="crayon">
+            <h3>Veuillez signer pour valider votre réservation</h3>
+          </div>
+          <div id="canvas_container">
+            <canvas id="canvas" width="300" height="150"></canvas> <!-- Création d'un bloc de signature avec l'API Canvas -->
+          </div>
+          <br>
+          <div id="button_container">
+            <!-- Bouton de sauvegarde de l'image réalisée -->
+            <input type="button" value="Valider" id="btnSave" size="30" onclick="signatureCanvas.sauvegarder()">
+            <!-- Bouton de réinitialisation du canvas -->
+            <input type="button" value="Effacer" id="btnClear" size="30" onclick="signatureCanvas.effacer()">
+          </div>
+        </div>
+
+      </section> <!-- Fin du bloc dédié à la réservation -->
+
+      <footer>
+        <h3>Renseignements et informations</h3>
+        <div id="bloc_coordonnees">
+          <div class="logo_titre_footer"> <!-- Logo de la page -->
+            <div class="logo_1"><img src="../img/logo_cycliste.png" alt="logo cycliste"></div>
+            <div class="logo_2"><img src="../img/logo_marqueur.png" alt="logo_marqueur"></div>
+          </div>
+          <div id="coordonnees">
+            <p><span>Cyclo'City</span> : Rue du maillot jaune - 69000 Lyon</p>
+            <p><span>Téléphone</span> : 00.27.31.15.44 - <span>Fax</span> : 00.28.25.58.02</p>
+            <p><a href="#">Nous contacter...</a></p>
+          </div>
+        </div>
+      </footer>
+
+    </div> <!-- Fin du bloc principal de la page -->
+
+
+
+
+
+    <!-- Appel ajax -->
+    <script src="../js/ajax.js"></script>
+
+    <!-- Leaflet JavaScript link -->
+    <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
+      integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
+      crossorigin=""></script>
+
+    <!-- slider.js JavaScript link -->
+    <script src="../js/slider_poo.js"></script>
+
+    <!-- carte.js JavaScript link -->
+    <script src="../js/application_poo.js"></script>
+
+    <!-- signature.js JavaScript link -->
+    <script src="../js/signature_pad_poo.js"></script>
+
+  </body>
+</html>
